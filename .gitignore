@@ -1,0 +1,9 @@
+# Hugo 自动生成的东西，不需要备份
+public/
+resources/_gen/
+.hugo_build.lock
+
+# 系统垃圾文件
+Thumbs.db
+desktop.ini
+.DS_Store
