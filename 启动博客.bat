@@ -12,7 +12,8 @@ echo     看完想关博客? 直接关掉这个窗口就行.
 echo   ==============================================
 echo.
 if not defined MYBLOG_SELFTEST start "打开浏览器" /min cmd /c "timeout /t 5 /nobreak >nul && explorer http://localhost:1313"
-hugo server -D
+rem --baseURL 指定本地地址, 否则会跟随 hugo.yaml 里线上的 /myblog/ 路径
+hugo server -D --baseURL "http://localhost:1313/"
 echo.
 echo   博客已停止, 按任意键关闭窗口.
 pause >nul
