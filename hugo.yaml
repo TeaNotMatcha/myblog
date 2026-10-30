@@ -1,68 +1,32 @@
-baseurl: https://example.com/
-languageCode: en-us
+# ==========================================================
+#  我的博客 —— Hugo + Stack 主题 配置文件
+#  改了这里的任何一行，都要关掉预览窗口（Ctrl+C）再重新启动一次。
+# ==========================================================
+
+# 站点地址。现在只在你自己的电脑上看，所以是 localhost。
+# 以后要放到网上，就换成你的真实网址，例如 https://你的名字.github.io/（末尾斜杠别丢）。
+baseURL: "http://localhost:1313/"
+
+# 站点名字：浏览器标签页、网站左上角显示的就是它
+title: 我的博客
+
+# 主题名，必须和 themes 文件夹里的文件夹名一致
 theme: hugo-theme-stack
-title: Example Site
-copyright: Example Person
 
-# Theme i18n support
-# Available values: ar, bn, ca, de, el, en, es, fr, hu, id, it, ja, ko, nl, pt-br, th, uk, zh-cn, zh-hk, zh-tw
-DefaultContentLanguage: zh-cn
+# 语言：简体中文。只保留中文一种，网站结构最干净。
+languageCode: zh-cn
+defaultContentLanguage: zh-cn
+# 中文没有空格分词，打开这个才能正确统计字数和生成摘要
+hasCJKLanguage: true
 
-# Set hasCJKLanguage to true if DefaultContentLanguage is in [zh-cn ja ko]
-# This will make .Summary and .WordCount behave correctly for CJK languages.
-hasCJKLanguage: false
+# 页脚版权，留空就不显示
+copyright: ""
 
-languages:
-    en:
-        languageName: English
-        title: Example Site
-        weight: 1
-        params:
-            sidebar:
-                subtitle: Example description
-    zh-cn:
-        languageName: 简体中文
-        title: 演示站点
-        weight: 2
-        params:
-            sidebar:
-                subtitle: 演示说明
-
-    zh-tw:
-        languageName: 正體中文
-        title: 演示站點
-        weight: 2
-        params:
-            sidebar:
-                subtitle: 演示說明
-
-    ja:
-        languageName: 日本語
-        title: サンプルサイト
-        weight: 2
-        params:
-            sidebar:
-                subtitle: サンプル説明
-    ar:
-        languageName: عربي
-        languagedirection: rtl
-        title: موقع تجريبي
-        weight: 3
-        params:
-            sidebar:
-                subtitle: وصف تجريبي
-
-services:
-    # Change it to your Disqus shortname before using
-    disqus:
-        shortname: "hugo-theme-stack"
-    # GA Tracking ID
-    googleAnalytics:
-        id:
-
+# 每页显示几篇文章
 pagination:
-    pagerSize: 3
+    pagerSize: 5
 
+# 文章网址格式：文章会变成 /p/文章名/
 permalinks:
     post: /p/:slug/
     page: /:slug/
@@ -70,118 +34,40 @@ permalinks:
 params:
     mainSections:
         - post
-    featuredImageField: image
     rssFullContent: true
-    favicon: # e.g.: favicon placed in `static/favicon.ico` of your site folder, then set this field to `/favicon.ico` (`/` is necessary)
+    # 网站小图标：把 favicon.ico 放进 static 文件夹，这里写 /favicon.ico
+    favicon: ""
 
     footer:
-        since: 2020
-        customText:
+        since: 2026
+        customText: ""
 
     dateFormat:
-        published: Jan 02, 2006
-        lastUpdated: Jan 02, 2006 15:04 MST
+        published: 2006年01月02日
+        lastUpdated: 2006年01月02日 15:04
 
     sidebar:
         emoji: 🍥
-        subtitle: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        subtitle: 随便写点什么
         avatar:
             enabled: true
             local: true
+            # 想换成自己的头像：把图片命名为 avatar.png 放到 assets/img/ 文件夹里
             src: img/avatar.png
 
     article:
-        math: true
-        toc: true
-        readingTime: false
+        math: true        # 支持 $公式$
+        toc: true         # 自动生成目录
+        readingTime: true
         license:
             enabled: false
-            default: Licensed under CC BY-NC-SA 4.0
+            default: 本文采用 CC BY-NC-SA 4.0 许可协议
 
+    # 评论功能先关着。以后想开，推荐 waline 或 giscus，填一个仓库地址就能用。
     comments:
         enabled: false
         provider: disqus
 
-        disqusjs:
-            shortname:
-            apiUrl:
-            apiKey:
-            admin:
-            adminLabel:
-
-        utterances:
-            repo:
-            issueTerm: pathname
-            label:
-
-        beaudar:
-            repo:
-            issueTerm: pathname
-            label:
-            theme:
-
-        remark42:
-            host:
-            site:
-            locale:
-
-        vssue:
-            platform:
-            owner:
-            repo:
-            clientId:
-            clientSecret:
-            autoCreateIssue: false
-
-        # Waline client configuration see: https://waline.js.org/en/reference/component.html
-        waline:
-            serverURL:
-            lang:
-            pageview:
-            emoji:
-                - https://unpkg.com/@waline/emojis@1.0.1/weibo
-            requiredMeta:
-                - name
-                - email
-                - url
-            locale:
-                admin: Admin
-                placeholder:
-
-        twikoo:
-            envId:
-            region:
-            path:
-            lang:
-
-        # See https://cactus.chat/docs/reference/web-client/#configuration for description of the various options
-        cactus:
-            defaultHomeserverUrl: "https://matrix.cactus.chat:8448"
-            serverName: "cactus.chat"
-            siteName: "" # You must insert a unique identifier here matching the one you registered (See https://cactus.chat/docs/getting-started/quick-start/#register-your-site)
-
-        giscus:
-            repo:
-            repoID:
-            category:
-            categoryID:
-            mapping:
-            lightTheme:
-            darkTheme:
-            reactionsEnabled: 1
-            emitMetadata: 0
-
-        gitalk:
-            owner:
-            admin:
-            repo:
-            clientID:
-            clientSecret:
-            proxy:
-
-        cusdis:
-            host:
-            id:
     widgets:
         homepage:
             - type: search
@@ -197,25 +83,8 @@ params:
         page:
             - type: toc
 
-    opengraph:
-        twitter:
-            # Your Twitter username
-            site:
-
-            # Available values: summary, summary_large_image
-            card: summary_large_image
-
-    defaultImage:
-        opengraph:
-            enabled: false
-            local: false
-            src:
-
     colorScheme:
-        # Display toggle
-        toggle: true
-
-        # Available values: auto, light, dark
+        toggle: true      # 右上角的明暗切换按钮
         default: auto
 
     imageProcessing:
@@ -224,24 +93,11 @@ params:
         content:
             enabled: true
 
-### Custom menu
-### See https://stack.jimmycai.com/config/menu
-### To remove about, archive and search page menu item, remove `menu` field from their FrontMatter
+# 菜单：主页/关于/归档/搜索这些项目是从各自页面的 front matter 里来的，
+# 这里留空就行，但两行不要删。
 menu:
     main: []
-
-    social:
-        - identifier: github
-          name: GitHub
-          url: https://github.com/CaiJimmy/hugo-theme-stack
-          params:
-              icon: brand-github
-
-        - identifier: twitter
-          name: Twitter
-          url: https://twitter.com
-          params:
-              icon: brand-twitter
+    social: []
 
 related:
     includeNewer: true
@@ -250,7 +106,6 @@ related:
     indices:
         - name: tags
           weight: 100
-
         - name: categories
           weight: 200
 
@@ -269,7 +124,7 @@ markup:
                         - - \(
                           - \)
         renderer:
-            ## Set to true if you have HTML content inside Markdown
+            # 允许在 Markdown 里直接写 HTML
             unsafe: true
     tableOfContents:
         endLevel: 5
